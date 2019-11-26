@@ -7,7 +7,7 @@ class UserForm extends Component {
   constructor(props){
       super(props)
       const user = props.user || new User();
-      this.setState(user);
+      
       console.log(this.state);
 
       

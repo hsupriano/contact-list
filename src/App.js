@@ -6,7 +6,7 @@ import UserForm from "./components/user-editor";
 class App extends Component {
   constructor(props) {
     super(props);
-    state = {
+    this.state = {
       users: []
     };
     
@@ -30,7 +30,7 @@ class App extends Component {
 
   saveUser(user) {
     const newUser =
-      this.state.user.concat(user);
+      this.state.users.concat(user);
     this.setState({ users: user });
     console.log("partent function", user)
     
@@ -43,7 +43,7 @@ class App extends Component {
     return (
 
       <div>
-        <UserForm saveUser={(user) => this.saveUser(user)} />
+        <UserForm saveUser={this.saveUser.bind(this)} />
         <h1>Contact List</h1>
         <h3>Users</h3>
         {this.state.users.map(user => (
